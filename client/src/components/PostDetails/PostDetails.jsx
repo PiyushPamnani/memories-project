@@ -85,42 +85,44 @@ const PostDetails = () => {
           <Typography gutterBottom variant="h5">
             You Might Also Like:
           </Typography>
-          <Divider />
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(
               ({ title, message, name, likes, selectedFile, _id }) => (
-                <div
-                  style={{ margin: "20px", cursor: "pointer" }}
-                  onClick={() => openPost(_id)}
-                  key={_id}
-                >
-                  <Typography gutterBottom variant="h6">
-                    {title}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle2">
-                    {message}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle2">
-                    {name}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle1">
-                    Likes: {likes}
-                  </Typography>
-                  <img src={selectedFile} width="200px" />
-                </div>
+                <>
+                  <Divider />
+                  <div
+                    style={{ margin: "20px", cursor: "pointer" }}
+                    onClick={() => openPost(_id)}
+                    key={_id}
+                  >
+                    <Typography gutterBottom variant="h6">
+                      {title}
+                    </Typography>
+                    <Typography gutterBottom variant="subtitle2">
+                      {message}
+                    </Typography>
+                    <Typography gutterBottom variant="subtitle2">
+                      {name}
+                    </Typography>
+                    <Typography gutterBottom variant="subtitle1">
+                      Likes: {likes.length}
+                    </Typography>
+                    <img src={selectedFile} width="200px" />
+                  </div>
+                </>
               )
             )}
           </div>
         </div>
       ) : (
-        <div
-          className={classes.section}
-          style={{ margin: "20px", cursor: "default" }}
-        >
-          <Typography gutterBottom variant="h5">
-            No Recommendations for this Post!
-          </Typography>
-        </div>
+        <>
+          <Divider style={{ margin: "20px" }} />
+          <div className={classes.section} style={{ cursor: "default" }}>
+            <Typography gutterBottom variant="h5">
+              No Recommendations for this Post!
+            </Typography>
+          </div>
+        </>
       )}
     </Paper>
   );
