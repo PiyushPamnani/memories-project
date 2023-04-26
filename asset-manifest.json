@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/memories-project/static/css/main.48716882.css",
-    "main.js": "/memories-project/static/js/main.39d679b0.js",
+    "main.js": "/memories-project/static/js/main.9e6ed851.js",
     "static/media/memories-logo.png": "/memories-project/static/media/memories-logo.3ceef8e5c872f9db5d9f.png",
     "static/media/memories-text.png": "/memories-project/static/media/memories-text.014b9f3f225b793616ee.png",
     "index.html": "/memories-project/index.html",
     "main.48716882.css.map": "/memories-project/static/css/main.48716882.css.map",
-    "main.39d679b0.js.map": "/memories-project/static/js/main.39d679b0.js.map"
+    "main.9e6ed851.js.map": "/memories-project/static/js/main.9e6ed851.js.map"
   },
   "entrypoints": [
     "static/css/main.48716882.css",
-    "static/js/main.39d679b0.js"
+    "static/js/main.9e6ed851.js"
   ]
 }
