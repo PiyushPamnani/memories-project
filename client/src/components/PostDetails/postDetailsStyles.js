@@ -38,4 +38,25 @@ export default makeStyles((theme) => ({
     borderRadius: "15px",
     height: "39vh",
   },
+  commentsOuterContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
+  },
+  commentsInnerContainer: {
+    height: "200px",
+    overflowY: "auto",
+    marginRight: "30px",
+  },
+  typeComment: {
+    width: "70%",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      borderTop: "1px solid gray",
+      padding: "10px",
+      marginTop: "5px",
+    },
+  },
 }));
