@@ -132,3 +132,21 @@ export const commentPost = async (req, res) => {
 
   res.json(updatedPost);
 };
+
+export const remove = async (req, res) => {
+  const { id: _id, index: commentIdx } = req.params;
+
+  const post = await messagePost.findById(_id);
+
+  if (post) {
+    post.comments.splice(commentIdx, 1);
+
+    const updatedPost = await messagePost.findByIdAndUpdate(_id, post, {
+      new: true,
+    });
+
+    res.json(updatedPost);
+  } else {
+    res.status(404).json({ message: "Post not found" });
+  }
+};

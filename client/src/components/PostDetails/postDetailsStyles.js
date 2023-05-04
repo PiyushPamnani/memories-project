@@ -39,24 +39,26 @@ export default makeStyles((theme) => ({
     height: "39vh",
   },
   commentsOuterContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-    },
+    display: "grid",
   },
   commentsInnerContainer: {
     height: "200px",
     overflowY: "auto",
     marginRight: "30px",
   },
+  commentSection: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  deleteButton: {
+    marginTop: "4px",
+    color: "red",
+    cursor: "pointer",
+  },
   typeComment: {
-    width: "70%",
-    [theme.breakpoints.down("sm")]: {
-      width: "90%",
-      borderTop: "1px solid gray",
-      padding: "10px",
-      marginTop: "5px",
-    },
+    width: "90%",
+    borderTop: "1px solid gray",
+    padding: "10px",
+    marginTop: "5px",
   },
 }));

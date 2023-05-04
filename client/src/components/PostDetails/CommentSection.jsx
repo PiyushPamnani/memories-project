@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import { Typography, TextField, Button } from "@material-ui/core";
+import { RemoveCircleOutline } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
-import { commentPost } from "../../actions/ActionPosts";
+import { commentPost, deleteComment } from "../../actions/ActionPosts";
 import useStyles from "./postDetailsStyles";
 
 const CommentSection = ({ post }) => {
@@ -11,9 +12,10 @@ const CommentSection = ({ post }) => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   const scrollRef = useRef();
+  console.log(post);
 
   const handleSubmit = async () => {
-    const fullComment = `${user.result.name}: ${comment}`;
+    const fullComment = `${user.result.name}: ${comment}~ ${user.result.email}`;
 
     const newComment = await dispatch(commentPost(fullComment, post._id));
 
@@ -21,6 +23,16 @@ const CommentSection = ({ post }) => {
     setComment("");
 
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleDelete = async (commentIdx) => {
+    await dispatch(deleteComment(post._id, commentIdx));
+
+    const newComment = comments.filter(
+      (comment, index) => index !== commentIdx
+    );
+
+    setComments(newComment);
   };
 
   return (
@@ -31,9 +43,26 @@ const CommentSection = ({ post }) => {
             Comments
           </Typography>
           {comments.map((c, idx) => (
-            <Typography key={idx} gutterBottom variant="subtitle1">
-              <strong>{c.split(": ")[0]}</strong>
-              {c.split(":")[1]}
+            <Typography
+              className={classes.commentSection}
+              key={idx}
+              gutterBottom
+              variant="subtitle1"
+            >
+              <span>
+                <strong>{c.split(": ")[0]}: </strong>
+                {c.substring(c.indexOf(":") + 1, c.indexOf("~"))}
+              </span>
+              {(user?.result?.googleId === post?.creator ||
+                user?.result?._id === post?.creator ||
+                c.split("~ ")[1] === user?.result?.email) && (
+                <span
+                  onClick={() => handleDelete(idx)}
+                  className={classes.deleteButton}
+                >
+                  <RemoveCircleOutline fontSize="small" />
+                </span>
+              )}
             </Typography>
           ))}
           <div ref={scrollRef} />

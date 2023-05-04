@@ -7,6 +7,7 @@ import {
   DELETE,
   LIKE,
   COMMENT,
+  REMOVE,
   START_LOADING,
   END_LOADING,
 } from "../constants/actionTypes";
@@ -89,6 +90,17 @@ export const commentPost = (value, id) => async (dispatch) => {
     dispatch({ type: COMMENT, payload: data });
 
     return data.comments;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteComment = (postId, commentIndex) => async (dispatch) => {
+  try {
+    await api.remove(postId, commentIndex);
+    console.log(commentIndex);
+
+    dispatch({ type: REMOVE, payload: { id: postId, index: commentIndex } });
   } catch (error) {
     console.log(error);
   }

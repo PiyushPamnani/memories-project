@@ -7,6 +7,7 @@ import {
   DELETE,
   LIKE,
   COMMENT,
+  REMOVE,
   START_LOADING,
   END_LOADING,
 } from "../constants/actionTypes";
@@ -50,6 +51,22 @@ export default (state = { isLoading: true, posts: [] }, action) => {
         posts: state.posts.map((post) => {
           if (post._id === action.payload._id) return action.payload;
 
+          return post;
+        }),
+      };
+    case REMOVE:
+      return {
+        ...state,
+        posts: state.posts.map((post) => {
+          if (post._id === action.payload._id) {
+            const comments = post.comments.filter(
+              (comment, index) => index !== action.payload.index
+            );
+            return {
+              ...post,
+              comments,
+            };
+          }
           return post;
         }),
       };
