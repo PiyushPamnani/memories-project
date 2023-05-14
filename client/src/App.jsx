@@ -15,14 +15,14 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route
-            path="/memories-project"
+            path="/memories-project/*"
             element={<Navigate replace to="/posts" />}
           />
-          <Route path="/posts" element={<Home />} />
-          <Route path="/posts/search" element={<Home />} />
-          <Route path="/posts/:id" element={<PostDetails />} />
+          <Route path="/posts/*" element={<Home />} />
+          <Route path="/posts/search/*" element={<Home />} />
+          <Route path="/posts/:id/*" element={<PostDetails />} />
           <Route
-            path="/auth"
+            path="/auth/*"
             element={!user ? <Auth /> : <Navigate replace to="/posts" />}
           />
         </Routes>

@@ -1,6 +1,6 @@
 ### PREVIEW
 
-![alt text](./client/src/assets/preview.png)
+![Memories](https://i.ibb.co/SRkYsMV/preview.png)
 
 ### MEMORIES
 
