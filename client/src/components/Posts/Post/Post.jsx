@@ -26,6 +26,7 @@ const Post = ({ post, setCurrentId }) => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("profile"));
   const [likes, setLikes] = useState(post?.likes);
+  const master_account = process.env.REACT_APP_MASTER_ACCOUNT;
 
   const userId = user?.result?.googleId || user?.result?._id;
   const hasLikedPost = likes.find((like) => like === userId);
@@ -120,7 +121,7 @@ const Post = ({ post, setCurrentId }) => {
         </Button>
         {(user?.result?.googleId === post?.creator ||
           user?.result?._id === post?.creator ||
-          user?.result?.email === "piyushpamnani46@gmail.com") && (
+          user?.result?.email === master_account) && (
           <Button
             size="small"
             color="secondary"
