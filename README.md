@@ -5,7 +5,7 @@
 ### MEMORIES
 
 - A full-stack MERN project called Memories with a form section and posts section.
-- A form consists of five entries including creator, title, message, tags and an image upload option.
+- A form consists of four entries including title, message, tags and an image upload option.
 - Upon submission of the form, a post with a unique ID is automatically created and displayed on the screen.
 - Enabled post actions such as edit, like, comment and delete.
 - Integrated MongoDB to store post information.
