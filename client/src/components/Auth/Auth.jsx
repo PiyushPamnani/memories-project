@@ -28,8 +28,7 @@ const initialState = {
 const Auth = () => {
   gapi.load("client:auth2", () => {
     gapi.client.init({
-      clientId:
-        "1055015944502-9j9t3k9t8jou8e0586t77u9a5ckurps0.apps.googleusercontent.com",
+      clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
       plugin_name: "chat",
     });
   });
@@ -135,7 +134,7 @@ const Auth = () => {
             {isSignUp ? "Sign Up" : "Sign In"}
           </Button>
           <GoogleLogin
-            clientId="1055015944502-9j9t3k9t8jou8e0586t77u9a5ckurps0.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             render={(renderProps) => (
               <Button
                 className={classes.googleButton}
