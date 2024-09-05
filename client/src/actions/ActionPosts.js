@@ -98,7 +98,6 @@ export const commentPost = (value, id) => async (dispatch) => {
 export const deleteComment = (postId, commentIndex) => async (dispatch) => {
   try {
     await api.remove(postId, commentIndex);
-    console.log(commentIndex);
 
     dispatch({ type: REMOVE, payload: { id: postId, index: commentIndex } });
   } catch (error) {

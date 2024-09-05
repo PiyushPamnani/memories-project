@@ -12,7 +12,6 @@ const CommentSection = ({ post }) => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
   const scrollRef = useRef();
-  console.log(post);
 
   const handleSubmit = async () => {
     const fullComment = `${user.result.name}: ${comment}~ ${user.result.email}`;
